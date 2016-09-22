@@ -4,17 +4,19 @@ import numpy as np
 
 #read the two exceptions spreadsheets
 x1 = pd.read_excel('BV_Post_2015.xlsx', sheetname = 'Exception Report Details')
-x2 = pd.read_excel('UEX.xlsx', sheetname = 'UEX')
+x2 = pd.read_excel('Exceptions.xlsx', sheetname = 'Uncleared Exceptions')
 
 #create two lists for iteration through SAKs to find the same ones
 lst = list(x2['Exception Sak'])                                   #BV_Post_2015
 lst_2 = list(x1['Exception Sak'])                                 #UEX
+
+list_3 = []
 
 for i in range(len(lst_2)):
     if lst_2[i] not in lst:
         pass
     else:
         list_3.append(lst_2[i])
-        
-print(list_3)
+
+#print(list_3)
 print(len(list_3))
