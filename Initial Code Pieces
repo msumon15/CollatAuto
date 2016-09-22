@@ -6,6 +6,7 @@ import numpy as np
 x1 = pd.read_excel('BV_Post_2015.xlsx', sheetname = 'Exception Report Details')
 x2 = pd.read_excel('Exceptions.xlsx', sheetname = 'Uncleared Exceptions')
 
+
 #create two lists for iteration through SAKs to find the same ones
 lst = list(x2['Exception Sak'])                                   #BV_Post_2015
 lst_2 = list(x1['Exception Sak'])                                 #UEX
@@ -28,3 +29,11 @@ exception_des = list(x1['Exception Description'])
 keys = list_3
 values = exception_des
 dictionary = dict(zip(keys, values))
+
+#create lists of material issues based on doctype
+fatal_list = ['AS10', 'ASN', 'ASN1', 'ASN2', 'ASN3', 'ASN4', 'ASN5', 'ASN6', 'ASN7', 'ASN8', 'ASN9', 'ASNV', 'ASSN', 'END1', 'END2', 'END3', 'END4', 'END5', 'END6', 'END7', 'ENDI', 'ENDV', 'NOTE', 'TPOL']
+doc_type = x1['Doctype']
+
+#building new worksheet to make comparisons
+x3 = pd.read_excel('Python_Combined.xlsx', sheetname = 'Sheet1')
+x3['Report - SAK'] = pd.Series(list_3)
