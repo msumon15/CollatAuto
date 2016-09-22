@@ -20,3 +20,11 @@ for i in range(len(lst_2)):
 
 #print(list_3)
 print(len(list_3))
+
+#creating list of exceptions from master file
+exception_des = list(x1['Exception Description'])
+
+#sort and create a dictionary of keys:values as per SAK # and Description
+keys = list_3
+values = exception_des
+dictionary = dict(zip(keys, values))
