@@ -1,6 +1,9 @@
 #import helper functions
 import pandas as pd
 import numpy as np
+import os
+
+os.chdir()
 
 #read the two exceptions spreadsheets
 x1 = pd.read_excel('BV_Post_2015.xlsx', sheetname = 'Exception Report Details')
@@ -35,5 +38,11 @@ fatal_list = ['AS10', 'ASN', 'ASN1', 'ASN2', 'ASN3', 'ASN4', 'ASN5', 'ASN6', 'AS
 doc_type = x1['Doctype']
 
 #building new worksheet to make comparisons
-x3 = pd.read_excel('Python_Combined.xlsx', sheetname = 'Sheet1')
-x3['Report - SAK'] = pd.Series(list_3)
+x4 = pd.read_excel('Python_Combined.xlsx', sheetname = 'Sheet1')
+x4 = pd.Series(dictionary, name = 'Description')
+
+#make a list of the descriptions
+for i in range(len(x1['Doctype'])):
+    list_4.append(docs[i])
+
+
