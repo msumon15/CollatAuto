@@ -49,6 +49,10 @@ for i in range(len(x1['Doctype'])):
 keys = x1['Exception Sak']
 values = x1['Doctype']
 dictionary = dict(zip(keys, values))
+keys_2 = x2['Exception Sak']
+values_2 = x2['Doctype']
+dictionary_2 = dict(zip(keys, values))
+
 
 #iterating over dictionary
 a = []
