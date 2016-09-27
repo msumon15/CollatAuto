@@ -45,4 +45,16 @@ x4 = pd.Series(dictionary, name = 'Description')
 for i in range(len(x1['Doctype'])):
     list_4.append(docs[i])
 
+#dictionary
+keys = x1['Exception Sak']
+values = x1['Doctype']
+dictionary = dict(zip(keys, values))
 
+#iterating over dictionary
+a = []
+
+for k, v in dictionary.items():
+    for k_2, v_2 in dictionary_2.items():
+        if k == k_2:
+            
+            a.append(v)
