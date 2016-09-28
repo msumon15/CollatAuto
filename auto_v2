@@ -1,0 +1,42 @@
+#import helper functions
+import pandas as pd
+import numpy as np
+import os 
+
+os.chdir('C:\\Users\\msumon\\Desktop\\Python_WL_Project')
+
+x1 = pd.read_excel('Seller.xlsx')
+x2 = pd.read_excel('Master.xlsx')
+
+a = list(x1['Exception Sak'])
+a_m = list(x2['Exception Sak'])
+
+b = list(x1['Doctype'])
+b_m = list(x2['Doctype'])
+
+dct = dict(zip(a, b))
+dct_2 = dict(zip(a_m, b_m))
+
+index = []
+
+for i in range(len(a)):
+    if a[i] not in a_m:
+        pass
+    else:
+        index.append(a[i])
+        
+df = pd.DataFrame(index = index)
+df['Seller - Sak'] = a
+df['Seller - Doctype'] = b
+
+new_a = []
+new_b = []
+
+for k, v in dct.items():
+    for k_2, v_2 in dct_2.items():
+        if k == k_2:
+            new_a.append(k_2)
+            new_b.append(v_2)
+            
+df['Master - Sak'] = new_a
+df['Master - Doctype'] = new_b
