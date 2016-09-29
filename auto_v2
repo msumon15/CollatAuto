@@ -5,8 +5,11 @@ import os
 
 os.chdir('C:\\Users\\msumon\\Desktop\\Python_WL_Project')
 
-x1 = pd.read_excel('BV_Post_2015.xlsx', sheetname = 'Exception Report Details')
-x2 = pd.read_excel('Exception_1.xlsx', sheetname = 'UEX')
+seller_file = 'BV_Post_2015.xlsx'
+wf_file = 'Exception_1.xlsx'
+
+x1 = pd.read_excel(seller_file, sheetname = 'Exception Report Details')
+x2 = pd.read_excel(wf_file, sheetname = 'UEX')
 
 a = list(x1['Exception Sak'])
 a_m = list(x2['Exception Sak'])
