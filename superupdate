@@ -1,0 +1,17 @@
+uex = pd.read_excel('newreport1.xlsx', sheetname = 'Sheet1')
+mapping = pd.read_excel('newreport1.xlsx', sheetname = 'Sheet2')
+
+map_keys = list(mapping['Exception'])
+map_values = list(mapping['Label'])
+
+map_keys = [element.upper() for element in map_keys]
+dict1 = dict(zip(map_keys, map_values))
+
+excp = list(uex['Def Lab'])
+excp = [element.upper() for element in excp]
+
+table = []
+
+for i in excp:
+  if i in dict1.keys():
+    table.append(dict1[i])
