@@ -50,4 +50,10 @@ ________________________________________________________________________________
 uex = pd.read_excel('newreport1.xlsx', sheetname = 'Sheet1')
 mapping = pd.read_excel('newreport1.xlsx', sheetname = 'Sheet2')
 
- map_keys = list(mapping['Exception'])map_values = list(mapping['Label'])dict1 = dict(zip(map_keys, map_values))
+ map_keys = list(mapping['Exception'])
+ map_values = list(mapping['Label'])
+ dict1 = dict(zip(map_keys, map_values))
+ 
+ for i in work:
+    if i in dict1.keys():
+        new2.append(dict1[i])
