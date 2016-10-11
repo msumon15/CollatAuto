@@ -45,3 +45,9 @@ df['Master - Doctype'] = new_b
 writer = pd.ExcelWriter('Python_Comb.xlsx')
 df.to_excel(writer, 'Sheet1')
 writer.save()
+____________________________________________________________________________________________________
+
+uex = pd.read_excel('newreport1.xlsx', sheetname = 'Sheet1')
+mapping = pd.read_excel('newreport1.xlsx', sheetname = 'Sheet2')
+
+ map_keys = list(mapping['Exception'])map_values = list(mapping['Label'])dict1 = dict(zip(map_keys, map_values))
