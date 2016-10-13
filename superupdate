@@ -15,3 +15,10 @@ table = []
 for i in excp:
   if i in dict1.keys():
     table.append(dict1[i])
+
+WORKING:
+for i in lst1:
+  if i in dict1:
+    fire.append(dict1[i])
+   else:
+    water.append(i)
