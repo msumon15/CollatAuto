@@ -1,24 +1,30 @@
-uex = pd.read_excel('newreport1.xlsx', sheetname = 'Sheet1')
-mapping = pd.read_excel('newreport1.xlsx', sheetname = 'Sheet2')
+import os
+os.chdir(''C:\\Users\\msumon\\Documents')
 
-map_keys = list(mapping['Exception'])
-map_values = list(mapping['Label'])
+import pandas as pd
 
-map_keys = [element.upper() for element in map_keys]
-dict1 = dict(zip(map_keys, map_values))
+uex = pd.read_excel('newreport2.xlsx', sheetname = 'Sheet1')
+mapping = pd.read_excel('newreport2.xlsx', sheetname = 'Sheet2')
 
-excp = list(uex['Def Lab'])
-excp = [element.upper() for element in excp]
+lst1 = list(uex['Def Lab'])
+lst1 = [element.upper() for element in lst1]
 
-table = []
+modexp = list(mapping['ModExp'])
+modexp = [element.upper() for element in modexp]
+modlab = list(mapping['ModLab'])
 
-for i in excp:
-  if i in dict1.keys():
-    table.append(dict1[i])
+dict1 = dict(zip(modexp, modlab))
 
-WORKING:
+fire = []
+water = []
+
 for i in lst1:
   if i in dict1:
     fire.append(dict1[i])
    else:
     water.append(i)
+  
+index = uex['Exception Sak']
+
+df = pd.DataFrame(lst1, index = index, columns = ['Doctype'])
+df['Label'] = fire
