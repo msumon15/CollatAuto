@@ -34,3 +34,7 @@ df['Label'] = fire
 df['Trust'] = trust
 df['Exception Sak'] = sak
 df['Seller'] = seller
+
+writer = pd.ExcelWriter('MasterFile.xlsx')
+df.to_excel(writer, 'Sheet1')
+writer.save()
