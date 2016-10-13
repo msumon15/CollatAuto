@@ -24,7 +24,13 @@ for i in lst1:
    else:
     water.append(i)
   
-index = uex['Exception Sak']
+index = uex['Investor ID']
+trust = list(uex['Trust Number'])
+sak = list(uex['Exception Sak'])
+seller = list(uex['Seller'])
 
 df = pd.DataFrame(lst1, index = index, columns = ['Doctype'])
 df['Label'] = fire
+df['Trust'] = trust
+df['Exception Sak'] = sak
+df['Seller'] = seller
