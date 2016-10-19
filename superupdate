@@ -57,5 +57,8 @@ cursor.execute(SQLCommand)
 
 #define results and fetch how many data points you want
 results = cursor.fetchmany(num=100)
+# show column names
+num_fields = len(cursor.description)
+field_names = [i[0] for i in cursor.description]
 
 print(results)
