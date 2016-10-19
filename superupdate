@@ -38,3 +38,24 @@ df['Seller'] = seller
 writer = pd.ExcelWriter('MasterFile.xlsx')
 df.to_excel(writer, 'Sheet1')
 writer.save()
+
+
+-------------------------------------------------SQL Program-------------------------------------------------------------------
+import pypyodbc
+
+#establish connection to local SQL Server/Databases
+cxnn = pypyodbc.connect('DRIVER={SQL Server};SERVER=SPARCS_AGG_SQL.METLIFE.COM,55900 (METNET\msumon);PORT=1433;')
+
+#create cursor
+cursor = cxnn.cursor()
+
+#SQLCommand(s)
+SQLCommand = ("Select LoanID FROM SparcsAggSql.[METNET\crobina].WholeLoan_Loans")
+
+#exceute cursor
+cursor.execute(SQLCommand)
+
+#define results and fetch how many data points you want
+results = cursor.fetchmany(num=100)
+
+print(results)
